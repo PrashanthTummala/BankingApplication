@@ -1,0 +1,16 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/BankingApplication/css/site.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-zmeHyqcLHgD1aDtumhdt7o5nuQVV3DzJZA1AaeRa6\u002B0="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1038"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022zmeHyqcLHgD1aDtumhdt7o5nuQVV3DzJZA1AaeRa6\u002B0=\u0022"},{"Name":"Last-Modified","Value":"Wed, 29 Jan 2025 06:31:31 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/BankingApplication/css/site.u13rc1mj1z.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"u13rc1mj1z"},{"Name":"integrity","Value":"sha256-zmeHyqcLHgD1aDtumhdt7o5nuQVV3DzJZA1AaeRa6\u002B0="},{"Name":"label","Value":"_content/BankingApplication/css/site.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1038"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022zmeHyqcLHgD1aDtumhdt7o5nuQVV3DzJZA1AaeRa6\u002B0=\u0022"},{"Name":"Last-Modified","Value":"Wed, 29 Jan 2025 06:31:31 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

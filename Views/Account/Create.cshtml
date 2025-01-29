@@ -1,0 +1,112 @@
+﻿@{
+    ViewData["Title"] = "Create Account";
+}
+<head>
+    <style>
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+            background-color: whitesmoke;
+            padding: 10px 20px;
+        }
+
+            .navbar .logo {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+            .nav-links li {
+                margin: 0 15px;
+            }
+
+            .nav-links a {
+                text-decoration: none;
+                font-size: 18px;
+                transition: 0.3s;
+            }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        .text-danger {
+            color: #dc3545;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+            a:hover {
+                text-decoration: underline;
+                color: #0056b3;
+            }
+
+    </style>
+</head>
+<nav class="navbar">
+    <div class="logo">BankingApp</div>
+    <ul class="nav-links">
+        <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+        <li><a href="@Url.Action("Privacy", "Home")">Privacy</a></li>
+    </ul>
+</nav>
+<h2>Create Account</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" name="Name" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Balance">Balance</label>
+        <input type="number" name="Balance" class="form-control" step="0.01" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a href="@Url.Action("Index", "Account")" class="btn btn-secondary">Cancel</a>
+
+</form>

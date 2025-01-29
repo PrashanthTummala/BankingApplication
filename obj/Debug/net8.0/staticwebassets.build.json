@@ -1,0 +1,20 @@
+{
+  "Version": 1,
+  "Hash": "yx0Nr6G0Ahlzm3I88sK9dCO8TukErOHkCV4qB76jJZI=",
+  "Source": "BankingApplication",
+  "BasePath": "_content/BankingApplication",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "BankingApplication\\wwwroot",
+      "Source": "BankingApplication",
+      "ContentRoot": "C:\\Users\\Prashanth Tummala\\source\\repos\\BankingApplication\\wwwroot\\",
+      "BasePath": "_content/BankingApplication",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [],
+  "Endpoints": []
+}

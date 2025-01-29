@@ -1,0 +1,111 @@
+﻿@using BankingApplication.Models
+@model IEnumerable<Account>
+<head>
+    <style>
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+            background-color: whitesmoke;
+            padding: 10px 20px;
+        }
+
+            .navbar .logo {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+            .nav-links li {
+                margin: 0 15px;
+            }
+
+            .nav-links a {
+                text-decoration: none;
+                font-size: 18px;
+                transition: 0.3s;
+            }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .create-link {
+            color: blue;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .account-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .account-table th, .account-table td {
+                border: 1px solid #ddd;
+                padding: 10px;
+                text-align: left;
+            }
+
+            .account-table th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+            }
+
+        .action-link {
+            color: blue;
+            text-decoration: none;
+        }
+
+            .action-link:hover {
+                text-decoration: underline;
+            }
+
+    </style>
+</head>
+<nav class="navbar">
+    <div class="logo">BankingApp</div>
+    <ul class="nav-links">
+        <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+        <li><a href="@Url.Action("Privacy", "Home")">Privacy</a></li>
+    </ul>
+</nav>
+
+<h1>All Accounts</h1>
+<a href="@Url.Action("Create", "Account")" class="create-link">Create New</a>
+
+<table class="account-table">
+    <thead>
+        <tr>
+            <th>AccountName</th>
+            <th>Balance</th>
+            <th></th> <!-- Empty header for action links -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var account in Model)
+        {
+            <tr>
+                <td>@account.Name</td>
+                <td>@account.Balance.ToString("F2")</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Account", new { id = account.AccountID })" class="action-link">Edit</a> |
+                    <a href="@Url.Action("Details", "Account", new { id = account.AccountID })" class="action-link">Details</a> |
+                    <form method="post" action="@Url.Action("Delete", "Account", new { id = account.AccountID })" style="display:inline;">
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this account?');">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

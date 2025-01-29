@@ -1,0 +1,109 @@
+﻿@model IEnumerable<BankingApplication.Models.Transaction>
+
+@{
+    ViewData["Title"] = "Transactions";
+}
+<head>
+    <style>
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+            background-color: whitesmoke;
+            padding: 10px 20px;
+        }
+
+            .navbar .logo {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+            .nav-links li {
+                margin: 0 15px;
+            }
+
+            .nav-links a {
+                text-decoration: none;
+                font-size: 18px;
+                transition: 0.3s;
+            }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+            .table th, .table td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            .table th {
+                background-color: #f4f4f4;
+                font-weight: bold;
+            }
+
+            .table tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+
+            .table tr:hover {
+                background-color: #f1f1f1;
+            }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+    </style>
+</head>
+<nav class="navbar">
+    <div class="logo">BankingApp</div>
+    <ul class="nav-links">
+        <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+        <li><a href="@Url.Action("Privacy", "Home")">Privacy</a></li>
+    </ul>
+</nav>
+<h2>All Transactions</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>From Account</th>
+            <th>To Account</th>
+            <th>Transaction Time</th>
+            <th>Amount Debited</th>
+            <th>From Account Balance</th>
+            <th>To Account Balance</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transaction in Model)
+        {
+            <tr>
+                <td>@transaction.FromAccount</td>
+                <td>@transaction.ToAccount</td>
+                <td>@transaction.TransactionTime</td>
+                <td>@transaction.Amount</td>
+                <td>@transaction.FromAccountBalance</td>
+                <td>@transaction.ToAccountBalance</td>
+                <td><a href="@Url.Action("Details", "Transactions", new { id = transaction.TransactionID })">Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

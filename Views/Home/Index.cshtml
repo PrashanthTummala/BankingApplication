@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+@* <h1>BankingApp</h1>
+
+<nav>
+    <a href="#">Home</a> | 
+    <a href="#">Privacy</a>
+</nav> *@
+<head>
+    <style>
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: whitesmoke;
+            padding: 10px 20px;
+        }
+
+            .navbar .logo {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+            .nav-links li {
+                margin: 0 15px;
+            }
+
+            .nav-links a {
+                text-decoration: none;
+                font-size: 18px;
+                transition: 0.3s;
+            }
+
+    </style>
+</head>
+<nav class="navbar">
+    <div class="logo">BankingApp</div>
+    <ul class="nav-links">
+        <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+        <li><a href="@Url.Action("Privacy", "Home")">Privacy</a></li>
+    </ul>
+</nav>
+
+<h2 style=" text-align:center; font-size:24px">WELCOME TO BANKING APP</h2>
+
+<div style=" text-align:center">
+    <ul style="list-style:none">
+        <li style="margin-bottom:12px">View all Accounts<a style="text-decoration:none" href="@Url.Action("Index", "Account")"> here.</a></li>
+        <li style="margin-bottom:12px">Initiate a transfer<a style="text-decoration:none" href="@Url.Action("TransferFunds", "Account")"> here.</a></li>
+        <li>View all Transactions<a style="text-decoration:none" href="@Url.Action("Transactions", "Account")"> here.</a></li>
+    </ul>
+</div>

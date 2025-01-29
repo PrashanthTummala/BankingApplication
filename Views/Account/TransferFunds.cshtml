@@ -1,0 +1,143 @@
+﻿<head>
+    <style>
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+            background-color: whitesmoke;
+            padding: 10px 20px;
+        }
+
+            .navbar .logo {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+            .nav-links li {
+                margin: 0 15px;
+            }
+
+            .nav-links a {
+                text-decoration: none;
+                font-size: 18px;
+                transition: 0.3s;
+            }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .banking-app {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+            header h1 {
+                margin: 0;
+                font-size: 2.5em;
+            }
+
+        nav {
+            margin-top: 10px;
+        }
+
+            nav a {
+                margin: 0 10px;
+                text-decoration: none;
+                color: #007bff;
+            }
+
+        .transfer-funds {
+            margin-top: 20px;
+        }
+
+            .transfer-funds h2 {
+                margin-bottom: 15px;
+            }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .form-group select, .form-group input {
+                width: 100%;
+                padding: 8px;
+                box-sizing: border-box;
+            }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<nav class="navbar">
+    <div class="logo">BankingApp</div>
+    <ul class="nav-links">
+        <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+        <li><a href="@Url.Action("Privacy", "Home")">Privacy</a></li>
+    </ul>
+</nav>
+
+<form asp-action="TransferFunds" method="post">
+    <section class="transfer-funds">
+        <h2>Transfer Funds</h2>
+        <form method="post">
+            <div class="form-group">
+                <label for="fromAccount">From Account</label>
+                <select id="FromAccountId" name="FromAccount" class="form-control">
+                    <option value="">Select Account</option>
+                    @foreach (var account in ViewBag.Accounts as List<SelectListItem>)
+                    {
+                        <option value="@account.Value">@account.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="toAccount">To Account</label>
+                <select id="ToAccountId" name="ToAccount" class="form-control">
+                    <option value="">Select Account</option>
+                    @foreach (var account in ViewBag.Accounts as List<SelectListItem>)
+                    {
+                        <option value="@account.Value">@account.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount to transfer</label>
+                <input type="number" id="amount" name="amount" value="10" />
+            </div>
+            <button type="submit">Transfer</button>
+        </form>
+    </section>
+
+</form>
